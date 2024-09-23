@@ -1,0 +1,12 @@
+[
+    {
+        "model": "internet.socksproxy",
+        "pk": 1,
+        "fields": {
+            "host": "tor",
+            "port": 9050,
+            "username": "",
+            "password": ""
+        }
+    }
+]
