@@ -4,3 +4,4 @@ psycopg2-binary==2.9.9
 django-extensions==3.2.3
 ipython==8.27.0
 Werkzeug==3.0.4
+django-cors-headers==3.14.0
