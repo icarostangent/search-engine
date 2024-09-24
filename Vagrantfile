@@ -56,6 +56,7 @@ Vagrant.configure("2") do |config|
 
     echo "alias dc='docker-compose -f docker-compose.development.yml'" >> $HOMEDIR/.bashrc
     echo "alias dc up -d='docker-compose -f docker-compose.development.yml up -d --remove-orphans'" >> $HOMEDIR/.bashrc
+    echo "pw=openssl rand -base64 32"
 
     usermod -aG sudo,docker $USERNAME
 
