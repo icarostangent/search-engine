@@ -13,8 +13,8 @@ services:
 
   backend:
     build:
-      context: ./backend/development
-      dockerfile: Dockerfile.backend
+      context: ./backend
+      dockerfile: Dockerfile.development.backend
     expose:
       - "8000"
     volumes: # Mount for development only
@@ -23,7 +23,7 @@ services:
     depends_on:
       - db
       - redis
-    command: ["/bin/bash", "/app/development/init.sh"]
+    command: ["/bin/bash", "/app/init.sh"]
     environment:
       DJANGO_WEB_SERVICE_FLAG: 'True'
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
@@ -37,7 +37,7 @@ services:
       
   scanner:
     build:
-      context: ./backend/development
+      context: ./backend
       dockerfile: Dockerfile.scanner
     volumes: # Mount for development only
       - ./backend:/app 
