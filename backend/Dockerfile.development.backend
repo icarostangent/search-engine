@@ -9,4 +9,6 @@ COPY . .
 
 EXPOSE 8000
 
+HEALTHCHECK --interval=5s --timeout=1s --retries=5 CMD curl -f http://localhost:8000/api/ || exit 1
+
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
