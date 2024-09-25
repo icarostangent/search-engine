@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Host, Port, Snapshot, SocksProxy
+from .models import Host, Port, Snapshot, Proxy
 
 
 class SnapshotSerializer(serializers.ModelSerializer):
@@ -26,8 +26,8 @@ class HostSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class SocksProxySerializer(serializers.ModelSerializer):
+class ProxySerializer(serializers.ModelSerializer):
     class Meta:
-        model = SocksProxy
+        model = Proxy
         fields = '__all__'
 

@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Host, Port, Snapshot, SocksProxy
-from .serializers import HostSerializer, PortSerializer, SnapshotSerializer, SocksProxySerializer
+from .models import Host, Port, Snapshot, Proxy
+from .serializers import HostSerializer, PortSerializer, SnapshotSerializer, ProxySerializer
 
 
 class SnapshotViewSet(viewsets.ModelViewSet):
@@ -18,6 +18,6 @@ class HostViewSet(viewsets.ModelViewSet):
     serializer_class = HostSerializer
 
 
-class SocksProxyViewSet(viewsets.ModelViewSet):
-    queryset = SocksProxy.objects.all()
-    serializer_class = SocksProxySerializer
+class ProxyViewSet(viewsets.ModelViewSet):
+    queryset = Proxy.objects.all()
+    serializer_class = ProxySerializer

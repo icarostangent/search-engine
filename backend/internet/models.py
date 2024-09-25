@@ -31,13 +31,15 @@ class Port(models.Model):
         return str(self.port)
 
 
-class SocksProxy(models.Model):
+class Proxy(models.Model):
+    proxy_types = {'S4': 'socks4', 'S5': 'socks5', 'HP': 'HTTP', 'HS': 'HTTPS',}
+
     host = models.CharField(max_length=255)
     port = models.IntegerField()
+    type = models.CharField(max_length=2, choices=proxy_types)
     username = models.CharField(max_length=255, blank=True, null=True)
     password = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.host}:{self.port}"
-

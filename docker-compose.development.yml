@@ -6,6 +6,7 @@ services:
       - "3000"
     volumes: # Mount for development only
       - ./frontend:/app 
+      - node_modules:/app/node_modules
     environment:
       - REACT_APP_API_URL=${REACT_APP_API_URL}
     networks:
@@ -110,6 +111,7 @@ services:
 volumes:
   db_data:
   redis_data:
+  node_modules:
 
 networks:
   search_engine_network:
