@@ -1,11 +1,6 @@
 from rest_framework import viewsets
-from .models import Host, Port, Snapshot, Proxy
-from .serializers import HostSerializer, PortSerializer, SnapshotSerializer, ProxySerializer
-
-
-class SnapshotViewSet(viewsets.ModelViewSet):
-    queryset = Snapshot.objects.all()
-    serializer_class = SnapshotSerializer
+from .models import Host, Port, Proxy, Word, WordList
+from .serializers import HostSerializer, PortSerializer, ProxySerializer, WordSerializer, WordListSerializer
 
 
 class PortViewSet(viewsets.ModelViewSet):
@@ -21,3 +16,14 @@ class HostViewSet(viewsets.ModelViewSet):
 class ProxyViewSet(viewsets.ModelViewSet):
     queryset = Proxy.objects.all()
     serializer_class = ProxySerializer
+
+
+class WordViewSet(viewsets.ModelViewSet):
+    queryset = Word.objects.all()
+    serializer_class = WordSerializer
+
+
+class WordListViewSet(viewsets.ModelViewSet):
+    queryset = WordList.objects.all()
+    serializer_class = WordListSerializer
+

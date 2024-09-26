@@ -1,0 +1,15 @@
+[
+    {
+        "model": "internet.Proxy",
+        "pk": 1,
+        "fields": {
+            "host_name": "tor",
+            "port_number": 9050,
+            "proxy_type": "S5",
+            "username": "",
+            "password": "",
+            "enabled": true,
+            "dead": false
+        }
+    }
+]

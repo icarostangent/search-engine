@@ -2,44 +2,51 @@ import uuid
 from django.db import models
 
 
-class Snapshot(models.Model):
-    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    timestamp = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return str(self.uuid)
-
-
 class Host(models.Model):
-    host = models.GenericIPAddressField(unique=True)
-    snapshot = models.ForeignKey(Snapshot, related_name='hosts', on_delete=models.CASCADE)
+    ip = models.GenericIPAddressField(unique=True)
+    proxy_endpoint = models.ForeignKey('Proxy', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.host)
+        return str(self.ip)
 
 
 class Port(models.Model):
-    port = models.IntegerField()
+    port_number = models.IntegerField()
     proto = models.CharField(max_length=3)
     status = models.CharField(max_length=25)
     reason = models.CharField(max_length=25)
     ttl = models.IntegerField()
-    host = models.ForeignKey(Host, related_name='ports', on_delete=models.CASCADE)
-    snapshot = models.ForeignKey(Snapshot, related_name='ports', on_delete=models.CASCADE)
+    host = models.ForeignKey('Host', related_name='ports', on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.port)
+        return str(self.port_number)
 
 
 class Proxy(models.Model):
     proxy_types = {'S4': 'socks4', 'S5': 'socks5', 'HP': 'HTTP', 'HS': 'HTTPS',}
 
-    host = models.CharField(max_length=255)
-    port = models.IntegerField()
-    type = models.CharField(max_length=2, choices=proxy_types)
+    host_name = models.CharField(max_length=255)
+    port_number = models.IntegerField()
+    proxy_type = models.CharField(max_length=2, choices=proxy_types)
     username = models.CharField(max_length=255, blank=True, null=True)
     password = models.CharField(max_length=255, blank=True, null=True)
-    active = models.BooleanField(default=True)
+    enabled = models.BooleanField(default=True)
+    dead = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.host}:{self.port}"
+        return f"{self.proxy_type}:{self.host_name}:{self.port_number}"
+
+
+class Word(models.Model):
+    text = models.CharField(max_length=255)
+    lists = models.ManyToManyField('WordList', related_name='words', null=True)
+
+    def __str__(self):
+        return str(self.text)
+
+
+class WordList(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return str(self.name)

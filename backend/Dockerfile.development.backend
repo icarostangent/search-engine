@@ -2,8 +2,9 @@ FROM python:3.10
 
 WORKDIR /app
 
-COPY requirements.development.backend.txt ./
-RUN pip install -r requirements.development.backend.txt
+COPY requirements.* ./
+RUN pip install -r requirements.txt
+RUN pip install -r requirements.development.txt
 
 COPY . .
 
