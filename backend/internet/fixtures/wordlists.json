@@ -1,9 +1,1 @@
-[
-  {
-    "model": "internet.wordlist",
-    "pk": 4,
-    "fields": {
-      "name": "Python"
-    }
-  }
-]
+[{"model": "internet.wordlist", "pk": 4, "fields": {"name": "Python"}}, {"model": "internet.wordlist", "pk": 5, "fields": {"name": "Rust"}}, {"model": "internet.wordlist", "pk": 6, "fields": {"name": "Cyber Security"}}, {"model": "internet.wordlist", "pk": 7, "fields": {"name": "Hacking"}}, {"model": "internet.wordlist", "pk": 8, "fields": {"name": "Databases"}}, {"model": "internet.wordlist", "pk": 9, "fields": {"name": "GoLang"}}, {"model": "internet.wordlist", "pk": 10, "fields": {"name": "C Programming"}}, {"model": "internet.wordlist", "pk": 11, "fields": {"name": "C++"}}, {"model": "internet.wordlist", "pk": 12, "fields": {"name": "1337"}}, {"model": "internet.wordlist", "pk": 13, "fields": {"name": "Cloud Architecture"}}, {"model": "internet.wordlist", "pk": 14, "fields": {"name": "Engineering"}}, {"model": "internet.wordlist", "pk": 15, "fields": {"name": "Tech Companies"}}, {"model": "internet.wordlist", "pk": 16, "fields": {"name": "Java"}}, {"model": "internet.wordlist", "pk": 17, "fields": {"name": "Assembly"}}, {"model": "internet.wordlist", "pk": 18, "fields": {"name": "Economics"}}, {"model": "internet.wordlist", "pk": 19, "fields": {"name": "Javascript"}}, {"model": "internet.wordlist", "pk": 20, "fields": {"name": "Machine Learning"}}, {"model": "internet.wordlist", "pk": 21, "fields": {"name": "Artificial Intelligence"}}, {"model": "internet.wordlist", "pk": 22, "fields": {"name": "Large Language Models"}}, {"model": "internet.wordlist", "pk": 23, "fields": {"name": "Programming"}}, {"model": "internet.wordlist", "pk": 24, "fields": {"name": "Malware Analysis"}}, {"model": "internet.wordlist", "pk": 25, "fields": {"name": "Linux"}}, {"model": "internet.wordlist", "pk": 26, "fields": {"name": "System Administration"}}, {"model": "internet.wordlist", "pk": 27, "fields": {"name": "DevOps"}}, {"model": "internet.wordlist", "pk": 28, "fields": {"name": "Docker"}}]

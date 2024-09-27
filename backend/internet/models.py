@@ -4,7 +4,6 @@ from django.db import models
 
 class Host(models.Model):
     ip = models.GenericIPAddressField(unique=True)
-    proxy_endpoint = models.ForeignKey('Proxy', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.ip)
@@ -15,7 +14,7 @@ class Port(models.Model):
     proto = models.CharField(max_length=3)
     status = models.CharField(max_length=25)
     reason = models.CharField(max_length=25)
-    ttl = models.IntegerField()
+    ttl = models.IntegerField(null=True)
     host = models.ForeignKey('Host', related_name='ports', on_delete=models.CASCADE)
 
     def __str__(self):
@@ -35,6 +34,21 @@ class Proxy(models.Model):
 
     def __str__(self):
         return f"{self.proxy_type}:{self.host_name}:{self.port_number}"
+
+
+class HostName(models.Model):
+    name = models.Field(max_length=255)
+    host = models.ForeignKey('Host', related_name='host_names', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.name)
+
+
+class DNSRelay(models.Model):
+    port = models.OneToOneField('Port', related_name='dns_relay', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(True)
 
 
 class Word(models.Model):

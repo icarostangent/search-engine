@@ -19,30 +19,22 @@ class ProxySerializer(serializers.ModelSerializer):
 
 class HostSerializer(serializers.ModelSerializer):
     ports = PortSerializer(many=True)
-    proxy_endpoint = ProxySerializer(many=False)
 
     class Meta:
         model = Host
         fields = '__all__'
 
 
-class Word_WordListSerializer(serializers.ModelSerializer):
+class WordListSerializer(serializers.ModelSerializer):
     class Meta:
         model = WordList
         fields = '__all__'
 
 
 class WordSerializer(serializers.ModelSerializer):
-    lists = Word_WordListSerializer(many=True)
+    lists = WordListSerializer(many=True)
 
     class Meta:
         model = Word
         fields = '__all__'
 
-
-class WordListSerializer(serializers.ModelSerializer):
-    words = WordSerializer(many=True)
-
-    class Meta:
-        model = WordList
-        fields = '__all__'
