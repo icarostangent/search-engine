@@ -38,15 +38,15 @@ class Proxy(models.Model):
 
 
 class Word(models.Model):
-    text = models.CharField(max_length=255)
-    lists = models.ManyToManyField('WordList', related_name='words', null=True)
+    text = models.CharField(max_length=255, unique=True)
+    lists = models.ManyToManyField('WordList', related_name='words')
 
     def __str__(self):
         return str(self.text)
 
 
 class WordList(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
         return str(self.name)

@@ -1,0 +1,9 @@
+[
+  {
+    "model": "internet.wordlist",
+    "pk": 4,
+    "fields": {
+      "name": "Python"
+    }
+  }
+]
