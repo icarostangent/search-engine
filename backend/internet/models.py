@@ -33,19 +33,19 @@ class Proxy(models.Model):
     dead = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.proxy_type}:{self.host_name}:{self.port_number}"
+        return f'{self.proxy_type}:{self.host_name}:{self.port_number}'
 
 
-class HostName(models.Model):
-    name = models.Field(max_length=255)
-    host = models.ForeignKey('Host', related_name='host_names', on_delete=models.CASCADE)
+class Domain(models.Model):
+    name = models.CharField(max_length=255)
+    host = models.ForeignKey('Host', related_name='domains', on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.name)
 
 
 class DNSRelay(models.Model):
-    port = models.OneToOneField('Port', related_name='dns_relay', on_delete=models.CASCADE)
+    port = models.OneToOneField('Port', on_delete=models.CASCADE)
 
     def __str__(self):
         return str(True)
