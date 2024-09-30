@@ -2,4 +2,4 @@ Django==5.1.1
 djangorestframework==3.15.2
 psycopg2-binary==2.9.9
 django-cors-headers==3.14.0
-django-filter
+django-filter==24.3
